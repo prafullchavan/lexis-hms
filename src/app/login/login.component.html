@@ -1,0 +1,43 @@
+<div class="container loginComponent bd-light">
+  <div class="row justify-content-md-center">
+    <div class="col-md-auto ">
+      <form class="form-vertical" [formGroup]="form" (ngSubmit)="onSubmit()">
+        <div class="text-center mb-4">
+          <img class="mb-4" src="../../assets/images/logo/Logo.png" alt="" width="200" height="60">
+          <h1 class="h4 mb-4 font-weight-normal">Secure Login to Lexis HMS </h1>
+        </div>
+        <!-- <div *ngIf="loading" class="loader">
+        </div> -->
+
+
+        <div class="loading" *ngIf="loading">Loading&#8230;</div>
+        <!--<img *ngIf="loading" src="../../assets/images/gif-load.gif" />-->
+        <div class="alert alert-danger" role="alert" *ngIf="!authenticationResult">
+          Login Failed!
+        </div>
+        <div class="form-group mb-4" [ngClass]="{'form-group is-invalid': form.get('userName').errors && 
+      (form.get('userName').touched || form.get('userName').dirty)}">
+          <input type="email" id="userName" formControlName="userName" class="form-control " placeholder="UserName">
+        </div>
+        <div class="form-group mb-4" [ngClass]="{'has-error': form.get('password').errors && 
+      (form.get('password').touched || form.get('password').dirty)}">
+          <input type="password" id="password" formControlName="password" class="form-control" placeholder="Password">
+        </div>
+        <div class="form-group mb-4">
+          <label>
+            <input type="checkbox" value="remember-me"> Remember UserName
+          </label>
+        </div>
+        <div class="form-group mb-2">
+          <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+        </div>
+      </form>
+    </div>
+    <div class="col-md-auto loginad">
+      <div>
+        <img src="../../assets/images/login-form-ad.jpg" alt="" class="loginad">
+      </div>
+    </div>
+  </div>
+</div>
+
